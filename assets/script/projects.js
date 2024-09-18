@@ -2,6 +2,7 @@
 const projects = [
     {
       title: "Hong Kong Controller Plugin",
+      date: "2024-07",
       caption: "Developed a dll plugin for Hong Kong virtual air traffic controllers to enhance realism.",
       description1: "Developed a plugin for EuroScope to enhance Hong Kong vACC controllers' experience, including realistic AutoTrac III radar tags, route selection, and approach types.",
       description2: "Implemented advanced features like missed approach alarms, slot/MAESTRO delay integration, and a Virtual Flight Plan Checker (VFPC).",
@@ -11,6 +12,7 @@ const projects = [
     },
     {
       title: "Jump King",
+      date: "2024-04",
       caption: "A recreation of the Jump King game in C for NIOS II on DE1-SOC.",
       description1: "Implemented complex game physics, including collision detection, jumping, gravity, and wall interactions, using a hardware timer with interrupts for accurate movement control.",
       description2: "Developed and animated character sprites and dynamic backgrounds by converting images to pixel data, enhancing gameplay visuals with double-buffered animations and sprite-based state transitions (e.g., running, jumping).",
@@ -20,6 +22,7 @@ const projects = [
     },
     {
         title: "JHB Holiday Mapper",
+        date: "2024-04",
         caption: "A C++ GIS Program designed for tourists and travellers.",
         description1: "Collaborated in a team of 3 to develop a GIS client using C++ and GTK, allowing tourists to search, display, and navigate points of interest with an intuitive and adaptive user interface.",
         description2: "Designed an intelligent holiday planning algorithm for route optimization and user-specific preferences.",
@@ -29,6 +32,7 @@ const projects = [
     },
     {
         title: "Hong Kong Sector Installer",
+        date: "2024-01",
         caption: "An GUI automatic installer for the Hong Kong sector files using libgit2 for merging changes.",
         description1: "Automated Installation and Updates: The tool simplifies the installation and updating of the Hong Kong Sector Package for EuroScope, ensuring controllers always have the latest version.",
         description2: "Conflict Resolution and Merging: It automatically detects and resolves conflicts when updating or migrating existing sector packages, with manual resolution options for experienced users.",
@@ -37,19 +41,23 @@ const projects = [
         link: "https://github.com/vatsimhk/Hong-Kong-Sector-Installer",
     },
     {
-        title: "2-Player Whack a Mole",
-        caption: "A whack a mole game recreated in verilog for the DE1-SOC FGPA.",
-        description1: "Collaborated on programming a Whack-A-Mole game in Verilog for the Altera SoC FPGA using the DE1-SOC platform.",
-        description2: "Developed key features including VGA output for animated graphics, PS2 keyboard input, and implemented finite state machines (FSMs) with datapaths.",
-        description3: "Delivered a complex, fully functional system, achieving top marks (100/100) for design complexity and project presentation.",
-        image: "/assets/img/project-aim_bert-bias.png",
-        link: "none",
+      title: "2-Player Whack a Mole",
+      date: "2023-11",
+      caption: "A whack a mole game recreated in verilog for the DE1-SOC FGPA.",
+      description1: "Collaborated on programming a Whack-A-Mole game in Verilog for the Altera SoC FPGA using the DE1-SOC platform.",
+      description2: "Developed key features including VGA output for animated graphics, PS2 keyboard input, and implemented finite state machines (FSMs) with datapaths.",
+      description3: "Delivered a complex, fully functional system, achieving top marks (100/100) for design complexity and project presentation.",
+      image: "/assets/img/project-aim_bert-bias.png",
+      link: "none",
     },
   ];
   
   // Function to load and display the latest project
 function displayLatestProject() {
     const recentProjectsDiv = document.getElementById('recent-projects');
+    projects.sort(function(a,b){
+      return new Date(b.date) - new Date(a.date);
+    });
     const latestProject = projects[0]; // The latest project is the first in the array
   
     // Create project HTML dynamically
